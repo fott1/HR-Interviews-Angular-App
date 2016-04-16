@@ -1,0 +1,69 @@
+@require '_mixins';
+@require '_variables';
+
+text-field {
+  display: block;
+}
+
+.form-for-field {
+  input,
+  textarea {
+
+    @extend $form-for-input
+
+    box-shadow: inset 0 1px 4px rgba(0,0,0, 0.15);
+
+    &:focus {
+      border-color: $border-color-focused;
+      box-shadow: $box-shadow-focused;
+    }
+
+    &:disabled {
+      opacity: $opacity-disabled;
+      pointer-events: none;
+    }
+  }
+
+  &.invalid input,
+  &.invalid textarea,
+  input:invalid
+  textarea:invalid {
+    border-color: red;
+
+    &:focus {
+      box-shadow: $box-shadow-error-focused;
+    }
+  }
+
+  &.with-icon-before {
+    input,
+    textarea {
+      padding-left: 40px;
+    }
+  }
+
+  &.with-icon-after {
+    input,
+    textarea {
+      padding-right: 40px;
+    }
+  }
+}
+
+.form-for-input-icon-left,
+.form-for-input-icon-right {
+  position: absolute;
+  bottom: 17px;
+  width: 40px;
+  text-align: center;
+  line-height: 1em;
+  margin-bottom: -.5em;
+}
+
+.form-for-input-icon-left {
+  left: 0;
+}
+
+.form-for-input-icon-right {
+  right: 0;
+}

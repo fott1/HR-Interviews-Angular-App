@@ -1,0 +1,35 @@
+<div>
+  <label ng-if="label"
+         ng-bind="label"></label>
+
+  <md-input-container>
+    <md-select ng-if="multiple"
+               ng-model="model.bindable"
+               ng-disabled="disable || model.disabled"
+               placeholder="{{placeholder}}"
+               md-autoselect="!preventDefaultOption"
+               multiple>
+
+      <md-option ng-repeat="option in bindableOptions"
+                 ng-value="option[valueAttribute]">
+        {{option[labelAttribute]}}
+      </md-option>
+    </md-select>
+
+    <md-select ng-if="!multiple"
+               ng-model="model.bindable"
+               ng-disabled="disable || model.disabled"
+               placeholder="{{placeholder}}"
+               md-autoselect="!preventDefaultOption">
+
+      <md-option ng-repeat="option in bindableOptions"
+                 ng-value="option[valueAttribute]">
+        {{option[labelAttribute]}}
+      </md-option>
+    </md-select>
+
+    <field-error  error="model.error"
+                  uid="{{model.uid}}-error">
+    </field-error>
+  </md-input-container>
+</div>

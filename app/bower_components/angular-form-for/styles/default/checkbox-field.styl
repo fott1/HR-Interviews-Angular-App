@@ -1,0 +1,60 @@
+@require '_mixins';
+@require '_variables';
+
+checkbox-field {
+  display: block;
+  position: relative;
+}
+
+.form-for-field {
+  > input[type="checkbox"] {
+    @extend $form-for-hidden-input
+
+    +label {
+      cursor: pointer;
+      display: inline-block;
+
+      &:before {
+        @extend $form-for-toggle-ui
+
+        border-radius: 4px;
+        content: " "; // Hidden
+      }
+    }
+
+    &:focus + label:before {
+      border-color: $border-color-focused;
+      box-shadow: $box-shadow-focused;
+    }
+
+    &:checked + label:before {
+      content: "\f00c";
+    }
+
+    &:disabled {
+      opacity: 0;
+      cursor: default;
+      pointer-events: none;
+
+      +label {
+        cursor: default;
+        opacity: $opacity-disabled;
+
+        &:before {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  > input[type="checkbox"]:invalid,
+  &.invalid > input[type="checkbox"] {
+    +label:before {
+      border-color: red;
+    }
+
+    &:focus + label:before {
+      box-shadow: $box-shadow-error-focused;
+    }
+  }
+}

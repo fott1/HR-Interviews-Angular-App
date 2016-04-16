@@ -1,0 +1,76 @@
+{
+  "name": "angular-material",
+  "version": "1.0.7",
+  "main": "index",
+  "format": "cjs",
+  "registry": "github",
+  "peerDependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.0",
+    "angular-aria": "^1.5.0",
+    "angular-messages": "^1.5.0"
+  },
+  "jspm": {
+    "dependencies": {
+      "angular": "github:angular/bower-angular@^1.5.0",
+      "angular-animate": "github:angular/bower-angular-animate@^1.5.0",
+      "angular-aria": "github:angular/bower-angular-aria@^1.5.0",
+      "angular-messages": "github:angular/bower-angular-messages@^1.5.0",
+      "css": "systemjs/plugin-css@^0.1.9"
+    },
+    "shim": {
+      "angular-material": {
+        "deps": []
+      }
+    },
+    "peerDependencies": {}
+  },
+  "homepage": "https://material.angularjs.org",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/angular/material.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/angular/material/blob/master/LICENSE"
+    }
+  ],
+  "keywords": [
+    "angular",
+    "material",
+    "browser",
+    "client-side"
+  ],
+  "bugs": {
+    "url": "https://github.com/angular/material/issues"
+  },
+  "gitHead": "8a7e717a542200a2d1fb0deafbc7598371690683",
+  "description": "This repo is for distribution on `npm` and `bower`. The source for this module is in the [main Angular Material repo](https://github.com/angular/material). Please file issues and pull requests against that repo.",
+  "_id": "angular-material@1.0.7",
+  "scripts": {},
+  "_shasum": "c8769b59c6a222d20576d0547b24603aa1722ea3",
+  "_from": "angular-material@latest",
+  "_npmVersion": "3.6.0",
+  "_nodeVersion": "5.6.0",
+  "_npmUser": {
+    "name": "angularcore",
+    "email": "angular-core+npm@google.com"
+  },
+  "dist": {
+    "shasum": "c8769b59c6a222d20576d0547b24603aa1722ea3",
+    "tarball": "https://registry.npmjs.org/angular-material/-/angular-material-1.0.7.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "angularcore",
+      "email": "angular-core+npm@google.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/angular-material-1.0.7.tgz_1459549439709_0.5092582132201642"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/angular-material/-/angular-material-1.0.7.tgz"
+}

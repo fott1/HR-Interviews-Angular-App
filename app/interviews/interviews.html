@@ -1,0 +1,114 @@
+<div style="margin-top:130px" class="container" ng-controller="LoginCtrl" ng-hide="authData">
+	<a href="#main-nav" class="h5 open-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-bars fa-2x fa-fw"></i></a>
+	<a href="#" class="h5 close-menu"><i style="color:#fff; position: relative; bottom:120px; cursor:pointer;" class="fa fa-times fa-2x fa-fw"></i></a>
+	<div class="spacer"></div>
+	<h1>Human Resources Angular App</h1>
+	<div class="spacer"></div>
+	<hr><hr>
+	<h2 class="text-center">Fotis Karalis</h2>
+	<div class"row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4"><md-button style="width:100%;" class="md-raised md-primary" ng-click="login()" ng-hide="authData">Login With GitHub</md-button></div>
+		<div class="col-md-4"></div>
+	</div>
+</div>
+
+<div ng-controller="LoginCtrl">
+	<div class"row">
+		<div class="col-md-12">
+			<div ng-show="authData" class="profileimg">
+			<img ng-src="{{ authData.github.cachedUserProfile.avatar_url }}" style="height: 100px; width: 100px;"/>
+			<span class="left-margin-xsmall">
+			{{ authData.github.displayName }} / <b><a href="{{ authData.github.cachedUserProfile.html_url }}">@{{ authData.github.username }}</a></b>
+			</span>
+			<md-button class="md-raised md-primary" ng-click="logout()">Logout</md-button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container" ng-controller="LoginCtrl" ng-show="authData">
+	<div class="row" ng-controller="InterviewsCtrl">
+		<div class="col-md-5" ng-show="addFormShow">
+			<h3> Add Candidate for Interview</h3>
+			<form name="mainForm" ng-submit="addInterview()" novalidate style="border-color: transparent;">
+
+			  <div class="form-group">
+			    <label>First Name</label>
+			    <input type="text" class="form-control" placeholder="Firstname" ng-model="firstname" id="firstname">
+			  </div>
+
+			   <div class="form-group">
+			    <label>Last Name</label>
+			    <input type="text" class="form-control" placeholder="Lastname" ng-model="lastname">
+			  </div>
+
+	  		  <div class="form-group">
+			    <label>Position</label>
+			    <input type="text" class="form-control" placeholder="Position" ng-model="position">
+			  </div>
+
+			   <div class="form-group">
+			    <label>Date</label>
+			    <input type="text" class="form-control" placeholder="Day/Month/Year" ng-model="date">
+			  </div>
+
+			  <md-button type="submit" class="md-raised md-primary" >Add Candidate</md-button>
+			  <md-button class="md-raised md-warn" ng-click="successmessage()">notify</md-button>
+			</form>
+		</div>
+			<div class="col-md-5" ng-show="editFormShow">
+			<h3> Edit Interview</h3>
+			<form ng-submit="editInterview()">
+
+			   <div class="form-group">
+			    <label>First Name</label>
+			    <input type="text" class="form-control" placeholder="Firstname" ng-model="firstname">
+			  </div>
+
+			   <div class="form-group">
+			    <label>Last Name</label>
+			    <input type="text" class="form-control" placeholder="Lastname" ng-model="lastname">
+			  </div>
+
+	  		  <div class="form-group">
+			    <label>Position</label>
+			    <input type="text" class="form-control" placeholder="Position" ng-model="position">
+			  </div>
+
+			   <div class="form-group">
+			    <label>Date</label>
+			    <input type="text" class="form-control" placeholder="Date" ng-model="date">
+			  </div>
+
+			  <button type="submit" class="btn btn-default">Edit Candidate</button>
+			</form>
+		</div>
+		<div class="col-md-7">
+			<h3>Candidates</h3>
+			<label>Quick Search for Candidate</label>
+			<input type="text" class="form-control" placeholder="Enter Lastname" ng-model="userSearch">
+			<table class="table table-stripped">
+				<thead>
+					<tr>
+						<th><a href="#/" ng-click="orderByField='firstname'; reverseSort = !reverseSort" style="color:#fff;">Firstname<span ng-show="orderByField == 'firstname'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span></a></th>
+						<th><a href="#/" ng-click="orderByField='lastName'; reverseSort = !reverseSort" style="color:#fff;">Lastname<span ng-show="orderByField == 'lastName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span></a></th>
+						<th>Position</th>
+						<th>Date</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="interview in interviews | filter:userSearch |  orderBy:orderByField:reverseSort | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize">
+						<td class="tablerows">{{interview.firstname}}</td>
+						<td class="tablerows">{{interview.lastname}}</td>
+						<td class="tablerows">{{interview.position}}</td>
+						<td class="tablerows">{{interview.date}}</td>
+						<td><md-button class="md-raised md-primary" ng-click="showEditForm(interview)">Edit</md-button><md-button class="md-raised md-warn" ng-click="removeInterview(interview)">Delete</md-button></td>
+					</tr>
+				</tbody>
+			</table>
+			<uib-pagination total-items="interviews.length" ng-model="currentPage" ng-change="pageChanged()"items-per-page="pageSize"></uib-pagination>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+{
+  "firebase": "hr-interviews",
+  "public": "app",
+  "ignore": [
+    "firebase.json"
+  ]
+}

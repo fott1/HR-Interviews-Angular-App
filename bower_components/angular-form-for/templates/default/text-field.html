@@ -1,0 +1,24 @@
+<div class="form-for-field" ng-class="{ 'invalid': model.error, 'with-icon-after': iconAfter, 'with-icon-before': iconBefore }">
+  <field-label  ng-if="label"
+                input-uid="{{model.uid}}"
+                iud="{{model.uid}}-label"
+                label="{{label}}"
+                label-class="{{labelClass}}"
+                help="{{help}}"
+                required="{{model.required}}">
+  </field-label>
+
+  <field-error uid="{{model.uid}}-error" error="model.error"></field-error>
+
+  <!-- <input> and <textarea> rendered as partials to allow for easier overrides -->
+  <span ng-if="!multiline" ng-include src="'form-for/templates/text-field/_input.html'"></span>
+  <span ng-if="multiline"  ng-include src="'form-for/templates/text-field/_textarea.html'"></span>
+
+  <i class="form-for-input-icon-left"
+     ng-class="iconBefore"
+     ng-click="onIconBeforeClick()"></i>
+
+  <i class="form-for-input-icon-right"
+     ng-class="iconAfter"
+     ng-click="onIconAfterClick()"></i>
+</div>

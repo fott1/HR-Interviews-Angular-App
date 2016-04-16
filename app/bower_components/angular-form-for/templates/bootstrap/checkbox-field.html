@@ -1,0 +1,25 @@
+<div  class="field checkbox-field"
+      ng-class="{disabled: disable || model.disabled, 'has-error': model.error}">
+
+  <field-error  error="model.error"
+                left-aligned="true"
+                uid="{{model.uid}}-error">
+  </field-error>
+
+  <input  aria-manager
+          id="{{model.uid}}"
+          name="{{attribute}}"
+          type="checkbox"
+          tabindex="{{tabIndex}}"
+          ng-model="model.bindable"
+          ng-disabled="disable || model.disabled"
+          ng-change="changed()">
+
+  <field-label  ng-if="label"
+                input-uid="{{model.uid}}"
+                uid="{{model.uid}}-label"
+                label="{{label}}"
+                label-class="{{labelClass}}"
+                help="{{help}}">
+  </field-label>
+</div>

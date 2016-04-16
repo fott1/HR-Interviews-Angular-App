@@ -1,0 +1,31 @@
+<span class="field radio-field"
+      ng-class="{disabled: disable || model.disabled, 'has-error': model.error}">
+
+  <field-label  ng-if="label"
+                uid="{{uid}}-label"
+                label="{{label}}"
+                label-class="{{labelClass}}"
+                help="{{help}}">
+  </field-label>
+
+  <field-error  ng-if="!hideErrorMessage"
+                error="model.error"
+                left-aligned="true"
+                uid="{{uid}}-error">
+  </field-error>
+
+  <div ng-repeat="option in options track by $index">
+    <label>
+      <input  aria-manager
+              id="{{uid}}-{{$index}}"
+              type="radio"
+              name="{{attribute}}"
+              tabindex="{{tabIndex}}"
+              ng-model="model.bindable"
+              ng-value="option[valueAttribute]"
+              ng-disabled="disable || model.disabled">
+
+      <span ng-bind-html="option[labelAttribute]"></span>
+    </label>
+  </div>
+</span>

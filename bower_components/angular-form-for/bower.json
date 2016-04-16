@@ -1,0 +1,30 @@
+{
+  "name": "angular-form-for",
+  "version": "4.1.10",
+  "main": [
+    "./dist/form-for.css",
+    "./dist/form-for.js"
+  ],
+  "homepage": "https://github.com/bvaughn/angular-form-for",
+  "authors": [
+    "Brian Vaughn <brian.david.vaughn@gmail.com>"
+  ],
+  "description": "Set of Angular directives to simplify creating and validating HTML forms.",
+  "keywords": [
+    "angular",
+    "form",
+    "forms",
+    "crud",
+    "validation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}

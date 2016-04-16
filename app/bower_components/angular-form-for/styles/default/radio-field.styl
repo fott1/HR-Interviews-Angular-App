@@ -1,0 +1,65 @@
+@require '_mixins';
+@require '_variables';
+
+radio-field {
+  display: block;
+  position: relative;
+}
+
+.form-for-field {
+  > label {
+    display: block;
+
+    > input[type="radio"] {
+      @extend $form-for-hidden-input
+
+      +span {
+        cursor: pointer;
+        display: inline-block;
+
+        &:before {
+          @extend $form-for-toggle-ui
+
+          border-radius: 10px;
+          content: " "; // Hidden
+          font-size: 11px;
+        }
+      }
+
+      &:focus + span:before {
+        border-color: $border-color-focused;
+        box-shadow: $box-shadow-focused;
+      }
+
+      &:checked + span:before {
+        content: "\f111";
+      }
+
+      &:disabled {
+        opacity: 0;
+        cursor: default;
+        pointer-events: none;
+
+        +span {
+          cursor: default;
+          opacity: $opacity-disabled;
+
+          &:before {
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+
+  > label > input[type="radio"]:invalid,
+  &.invalid > label > input[type="radio"] {
+    +span:before {
+      border-color: red;
+    }
+
+    &:focus + span:before {
+      box-shadow: $box-shadow-error-focused;
+    }
+  }
+}

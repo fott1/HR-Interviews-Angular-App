@@ -1,0 +1,26 @@
+@require '_variables';
+
+field-label {
+  display: inline-block;
+}
+
+.field-label {
+  position: relative;
+  cursor: inherit;
+  font-weight: bold;
+  user-select: none;
+
+  &:hover {
+    .form-for-tooltip {
+      .form-for-tooltip-popover {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.field-label-required-label {
+  color: $color-text-1;
+  font-style: italic;
+  font-size: .8em;
+}
