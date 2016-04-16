@@ -66,6 +66,10 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
     record.date = $scope.date;
     //Save 
     $scope.interviews.$save(record).then(function(ref){
+      $scope.firstname = ""; //now empty the inputs, instead of manually removing text. I really dont know if its the best practice
+      $scope.lastname = "";
+      $scope.position = "";
+      $scope.date = "";
       console.log(ref.key)
     });
   }
