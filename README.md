@@ -6,6 +6,9 @@ Angular CRUD Application developed for educational reasons.
 ### Version
 0.0.1
 
+### Demo Live
+https://hr-interviews.firebaseapp.com/#/
+
 Includes: 	
 
 - CRUD features
@@ -28,6 +31,12 @@ Includes:
 ```sh
 npm start
 ```
+### Location
+
+```sh
+click app folder
+```
+
 ### Development
 
 I would love to help me extend this sample application.
