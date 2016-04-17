@@ -2581,3 +2581,7 @@ float: right;
 .tablerows{
 padding-top: 20px!important;
 }
+
+.profileimg a {
+background-color: transparent;
+}

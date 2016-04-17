@@ -1,0 +1,36 @@
+
+<div ng-controller="LoginCtrl" ng-show="authData">
+    <div class="container" ng-controller="LoginCtrl">
+        <div class="row">
+            <div class="col-md-4">
+                <img ng-src="{{ authData.github.cachedUserProfile.avatar_url }}" style="width: 150px; height: 150px;"></br>
+                <md-button class="md-raised md-primary" ng-click="logout()">Logout</md-button>
+            </div>
+            <div class="col-md-4">
+                {{ authData.github.displayName }} / <b><a href="{{ authData.github.cachedUserProfile.html_url }}">@{{ authData.github.username }}</a></b><br>
+                <span>Email: {{ authData.github.email }}<span><br>
+                <span ng-show="authData.github.cachedUserProfile.blog != '' ">Website: {{ authData.github.cachedUserProfile.blog }}</span><br>
+                <span>Location: {{ authData.github.cachedUserProfile.location }}</span><br>
+                <span>Public Repos: {{ authData.github.cachedUserProfile.public_repos }}</span><br>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Some of Your Repositories</h4>
+                <ul>
+                    <li class="list-group-item" ng-repeat="repo in repos | limitTo : 5">
+                        <a href="{{ repo.html_url }}">
+                        {{ repo.full_name }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <md-button class="md-raised md-primary" href="#/">Back</md-button>
+    </div>
+</div>
+
+
+

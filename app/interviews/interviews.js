@@ -1,13 +1,8 @@
 
 'use strict';
-//Interviews Module where the main work is done, comments will follow for George to understand my logic
 angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ngAnimate', 'ui.bootstrap'])
-//Route configuration. When the url is '/', render interviews.html and use the interviews controller
+
 .config(['$routeProvider', 'atomicNotifyProvider', function($routeProvider, atomicNotifyProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'interviews/interviews.html',
-    controller: 'InterviewsCtrl'
-  });
     atomicNotifyProvider.setDefaultDelay(5000);
     atomicNotifyProvider.useIconOnNotification(true);
 }])
@@ -50,8 +45,7 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
     }).then(function(ref){ //This is a promise! passing the ref with all data. 
       var id = ref.key();
       console.log('Interview added....'+ id); //just to see if its working i check console
-      $scope.firstname = ""; //now empty the inputs, instead of manually removing text. I really dont know if its the best practice
-      $scope.lastname = "";
+      $scope.firstname = ""; //now empty the inputs
       $scope.position = "";
       $scope.date = "";
     });  
@@ -66,7 +60,7 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
     record.date = $scope.date;
     //Save 
     $scope.interviews.$save(record).then(function(ref){
-      $scope.firstname = ""; //now empty the inputs, instead of manually removing text. I really dont know if its the best practice
+      $scope.firstname = ""; 
       $scope.lastname = "";
       $scope.position = "";
       $scope.date = "";
@@ -74,7 +68,7 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
     });
   }
 
-  $scope.removeInterview = function (interview){ //same here
+  $scope.removeInterview = function (interview){
     bootbox.confirm("Are you sure?", function(confirmed) {
       if(confirmed == true){
           $scope.interviews.$remove(interview);
@@ -87,47 +81,11 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
           });
     }
 }])
-
 .filter('startFrom', function(){
 return function(data, start){
     return data.slice(start);
 }
-})
+});
 
-.controller('LoginCtrl', ['$scope','$http', 'Auth', function ($scope, $http, Auth) {
-
-  Auth.$onAuth(function(authData) {
-    $scope.authData = authData;
-    if (authData) {
-      getRepos();
-    }
-  });
-
-  // Logs in a user with GitHub
-  $scope.login = function() {
-    Auth.$authWithOAuthPopup("github").then(function (authData){
-      console.log(authData);
-    }).catch(function(error) {
-      console.error("Error authenticating with GitHub:", error);
-    });
-  };
-
-  // Logs out the logged-in user
-  $scope.logout = function() {
-    Auth.$unauth();
-  };
-
-  // Retrieves the GitHub repos owned by the logged-in user
-  function getRepos() {
-    $http.get($scope.authData.github.cachedUserProfile.repos_url, {
-      access_token: $scope.authData.github.accessToken
-    }).success(function(repos) {
-      $scope.repos = repos;
-    }).error(function(error) {
-      console.error("Error making GitHub API request:", error);
-    });
-  }
-
-}]);
 
 
