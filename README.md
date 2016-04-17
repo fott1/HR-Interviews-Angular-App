@@ -4,7 +4,7 @@
 Angular CRUD Application developed for educational reasons.
 
 ### Version
-0.0.1
+0.0.2
 
 ### Demo Live
 https://hr-interviews.firebaseapp.com/#/
@@ -19,6 +19,7 @@ Includes:
 - Bootstrap Components
 - Firebase Communication
 - Smart Notification Btn
+- Personal Profile from GitHub
 
 ### Tech
 
