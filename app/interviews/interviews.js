@@ -69,15 +69,17 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
   }
 
   $scope.removeInterview = function (interview){
-    bootbox.confirm("Are you sure?", function(confirmed) {
-      if(confirmed == true){
+    bootbox.confirm("Are you sure?", function(result) {
+      if(result == true){
+        console.log('in')
           $scope.interviews.$remove(interview);
           $scope.firstname = "";
           $scope.lastname = "";
           $scope.position = "";
           $scope.date = "";
+          bootbox.alert("Candidate Deleted.")
           }
-      bootbox.alert("Candidate Deleted.")
+      
           });
     }
 }])
