@@ -20,6 +20,7 @@ Includes:
 - Firebase Communication
 - Smart Notification Btn
 - Personal Profile from GitHub
+- Comments Section (Like button not working as of yet)
 
 ### Tech
 
