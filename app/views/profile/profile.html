@@ -3,7 +3,7 @@
     <div class="container" ng-controller="LoginCtrl">
         <div class="row">
             <div class="col-md-4">
-                <img ng-src="{{ authData.github.cachedUserProfile.avatar_url }}" style="width: 150px; height: 150px;"></br>
+                <a href="{{ authData.github.cachedUserProfile.html_url }}"><img class="thumbnail" ng-src="{{ authData.github.cachedUserProfile.avatar_url }}" style="width: 150px; height: 150px;"><a/></br>
                 <md-button class="md-raised md-primary" ng-click="logout()">Logout</md-button>
             </div>
             <div class="col-md-4">

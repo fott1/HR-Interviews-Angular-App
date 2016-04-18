@@ -1,7 +1,7 @@
 
 'use strict';
 
-angular.module('myApp.contactme', ['ngRoute'])
+angular.module('myApp.contactme', ['ngRoute', 'firebase'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/contactme', {
@@ -10,6 +10,15 @@ angular.module('myApp.contactme', ['ngRoute'])
   });
 }])
 
-.controller('contactmeCtrl', ['$scope', function($scope){
-	
+
+
+.controller('contactmeCtrl', ['$scope', '$firebase', 'interviewsService', function( $scope, $firebase){
+  
+
 }])
+
+
+
+
+
+

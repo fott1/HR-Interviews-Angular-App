@@ -42,10 +42,12 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
       lastname: $scope.lastname,
       position: $scope.position,
       date: $scope.date,
+      comment: false, // i use it to categorise which add is comment or interview
     }).then(function(ref){ //This is a promise! passing the ref with all data. 
       var id = ref.key();
       console.log('Interview added....'+ id); //just to see if its working i check console
       $scope.firstname = ""; //now empty the inputs
+      $scope.lastname = "";
       $scope.position = "";
       $scope.date = "";
     });  

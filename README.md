@@ -4,7 +4,7 @@
 Angular CRUD Application developed for educational reasons.
 
 ### Version
-0.0.2
+0.0.3
 
 ### Demo Live
 https://hr-interviews.firebaseapp.com/#/

@@ -98,7 +98,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="interview in interviews | filter: userSearch |  orderBy:orderByField:reverseSort | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize">
+					<tr ng-repeat="interview in interviews | filter: userSearch |  orderBy:orderByField:reverseSort | startFrom: (currentPage - 1) * pageSize | limitTo: pageSize | filter:{comment:false}">
 						<td class="tablerows">{{interview.firstname}}</td>
 						<td class="tablerows">{{interview.lastname}}</td>
 						<td class="tablerows">{{interview.position}}</td>

@@ -1,0 +1,44 @@
+<div ng-controller="CommentsCtrl" class="top-margin-medium">
+  <div class="container">
+    <div class="row">
+      <h2 class="bottom-margin-large text-center">Leave your comments below</h2>
+      <div class="col-md-6">
+        <div class="commentsform">
+          <form>
+              <input name="name" placeholder="Please Enter your name" class="name" ng-model="name" required />
+              <input name="email" placeholder="Please Enter your email" class="email" type="email" ng-model="email" required />
+              <textarea rows="4" cols="50" name="subject" placeholder="Please enter your comment" class="message" ng-model="message" required></textarea>
+               <td><md-button class="md-raised md-primary" ng-click="addMessage()">Send</md-button></td>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <h3>Public Comments</h3>
+          <table class="table table-stripped">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Comment</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="msg in messages | filter:{comment:true}">
+                <td class="tablerows">{{msg.name}}</td>
+                <td class="tablerows">{{msg.message}}</td>
+                <td><md-button class="md-raised md-primary">Like</md-button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
