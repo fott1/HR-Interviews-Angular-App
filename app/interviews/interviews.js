@@ -7,7 +7,7 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
     atomicNotifyProvider.useIconOnNotification(true);
 }])
 //Inject the dependencies in our Controller and ready to go. The known Angular DI...
-.controller('InterviewsCtrl', ['$scope', '$firebaseArray', 'interviewsService', 'atomicNotifyService', function($scope, $firebaseArray, interviewsService, atomicNotifyService) {
+.controller('InterviewsCtrl', ['$scope', '$firebaseArray', 'interviewsService', 'atomicNotifyService', '$q', function($scope, $firebaseArray, interviewsService, atomicNotifyService, $q) {
 
     $scope.currentPage = 1;
     $scope.setPage = function (pageNo) {
@@ -19,7 +19,19 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
         atomicNotifyService.success('Yeah!, this works as expected!');
     };
 
-    $scope.interviews= interviewsService.getData();
+      $scope.interviews = interviewsService.getData()
+
+// Prepei na valo to filter ayto wste na deixnei to pagination pio swsta. to service exei to logic
+
+      // var totalComments = interviewsService.totalComments();
+
+      // totalComments.then(function(){
+      //   $scope.interviewsFilter = $scope.interviews.length - totalComments.$$state.value
+      //   console.log('Total Data are: ' + $scope.interviews.length)
+      //   console.log('Total Comments are: ' + totalComments.$$state.value)
+      //   console.log('Total Interviews are: ' + $scope.interviewsFilter)
+      // });
+
     $scope.orderByField = 'lastName'; //This is used for sorting with <a>Lastname</a>
     $scope.reverseSort = interviewsService.showFalse();
     //initial values to show or not add and edit forms
@@ -36,12 +48,13 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
     $scope.date = interview.date;
     }
 
-  $scope.addInterview= function (){ //same stuff here
+  $scope.addInterview = function (){ //same stuff here
     $scope.interviews.$add({ //add method to add interview. Again Add method is given in the object by default
       firstname: $scope.firstname,
       lastname: $scope.lastname,
       position: $scope.position,
       date: $scope.date,
+      like: 0, // to use it later at comments section
       comment: false, // i use it to categorise which add is comment or interview
     }).then(function(ref){ //This is a promise! passing the ref with all data. 
       var id = ref.key();
@@ -51,6 +64,11 @@ angular.module('myApp.interviews', ['ngRoute', 'ngAnimate', 'atomic-notify', 'ng
       $scope.position = "";
       $scope.date = "";
     });  
+  }
+
+  $scope.totalComments = function (){
+      var sumOfComments = $scope.interviews.length;
+      console.log(sumOfComments)
   }
 
   $scope.editInterview = function(){ //same here

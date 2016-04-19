@@ -16,10 +16,27 @@ angular.module('myApp.interviews')
         	return true;
         };
 
+        var totalComments = function(){
+            var deferred = $q.defer();
+            var interviews = getData();
+            var totalComments = 0;
+            interviews.$loaded().then(function(interviews) { //promise to get first the data and then count the length
+              var log = [];
+              angular.forEach(interviews, function(value, key) {
+                if(value.comment == true){
+                    totalComments++;
+                  }
+              }, log);
+              deferred.resolve(totalComments);
+            });
+            return deferred.promise;
+        }
+        
         var service = {
             getData: getData,  
             showFalse : showFalse,
-            showTrue : showTrue
+            showTrue : showTrue,
+            totalComments : totalComments
         };
         return service; 
 	}
