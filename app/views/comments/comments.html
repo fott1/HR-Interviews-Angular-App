@@ -19,14 +19,15 @@
               <tr>
                 <th>User</th>
                 <th>Comment</th>
-                <th></th>
+                <th>Did you Like it?</th>
+                <th>#</th>
               </tr>
             </thead>
             <tbody>
               <tr ng-repeat="msg in messages | filter:{comment:true}">
                 <td class="tablerows">{{msg.name}}</td>
                 <td class="tablerows">{{msg.message}}</td>
-                <td><md-button class="md-raised md-primary" ng-click="likeCounter(msg)" ng-model="like">Like</md-button></td>
+                <td><md-button class="md-raised md-primary" ng-click="likeCounter(msg)" ng-model="like" ng-disabled="isDisabled">Like</md-button></td>
                 <td class="tablerows"><b>{{msg.like}}</b></td>
               </tr>
             </tbody>
@@ -36,10 +37,3 @@
   </div>
 </div>
 
-
-
-
-
-
-
-</div>

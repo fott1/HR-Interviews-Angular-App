@@ -24,39 +24,19 @@ angular.module('myApp.commments', ['ngRoute', 'firebase'])
 			$scope.name = "",
 			$scope.email = "",
 			$scope.message = ""
-
 	}
 	$scope.messages = messages;
-
-
-
-	
-	$scope.likeCounter2 = function(msg){
-		messages.$add({
-			like: 1
-		})
-		.then(function(ref){
-			  console.log("+1 Like!");
-		});
-
-	}
-
-
-  $scope.likeCounter = function(msg){ //same here
-  	$scope.like = msg.like + 1;
-  	var id = msg.$id;
-    var record = $scope.messages.$getRecord(id);
-    record.like = $scope.like;
+	$scope.isDisabled = false;
+	$scope.likeCounter = function(msg){ //same here
+		$scope.like = msg.like + 1;
+		var id = msg.$id;
+		var record = $scope.messages.$getRecord(id);
+		record.like = $scope.like;
 	$scope.messages.$save(record).then(function(ref){
 		console.log("+1 Like for " + msg.name + "! Now, " + msg.like + " in total!");
-    });
-
-
-  }
-
-
-
-
+		$scope.isDisabled = true;
+		});
+	}
 
 }])
 

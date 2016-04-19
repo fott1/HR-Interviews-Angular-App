@@ -4,7 +4,7 @@
 Angular CRUD Application developed for educational reasons.
 
 ### Version
-0.0.4
+0.0.5
 
 ### Demo Live
 https://hr-interviews.firebaseapp.com/#/
@@ -49,12 +49,12 @@ I would definitely love to see you contributing. Please Fork and Add your Code!!
 Sorry for the lack of comments. I will add some soon. 
 
 I apologise also for any "non best practice" that may exist.
-This app requires some better file and code structure.
+This app requires some better file structure.
 
 ### Updates
 
 More updates, features and fixes will come soon.
-Enjoy, share and Contribute
+Enjoy, Share, Study and Contribute
 
 Thessaloniki, April 2016
 
