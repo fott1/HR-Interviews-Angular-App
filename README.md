@@ -4,7 +4,7 @@
 Angular CRUD Application developed for educational reasons.
 
 ### Version
-0.0.3
+0.0.4
 
 ### Demo Live
 https://hr-interviews.firebaseapp.com/#/
@@ -20,7 +20,8 @@ Includes:
 - Firebase Communication
 - Smart Notification Btn
 - Personal Profile from GitHub
-- Comments Section (Like button not working as of yet)
+- Comments Section
+- Custom Like Button for comments
 
 ### Tech
 
